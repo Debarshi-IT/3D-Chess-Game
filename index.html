@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Grandmaster Chess</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+                "three/addons/loaders/GLTFLoader.js": "https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js",
+                "three/addons/utils/SkeletonUtils.js": "https://unpkg.com/three@0.160.0/examples/jsm/utils/SkeletonUtils.js",
+                "chess.js": "https://esm.sh/chess.js"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="ui-container">
+        <header>
+            <h1>3D Grandmaster Chess</h1>
+            <div id="turn-indicator" class="white-turn">WHITE'S TURN</div>
+        </header>
+
+        <main id="game-canvas-container"></main>
+
+        <aside id="game-info">
+            <div class="info-card">
+                <h3>Move History</h3>
+                <div id="move-list"></div>
+            </div>
+            <div class="info-card captured-card">
+                <h3>Captured Pieces</h3>
+                <div class="captured-section">
+                    <span class="captured-label">White took</span>
+                    <div id="captured-white" class="captured-row"></div>
+                </div>
+                <div class="captured-section">
+                    <span class="captured-label">Black took</span>
+                    <div id="captured-black" class="captured-row"></div>
+                </div>
+            </div>
+            <button id="reset-btn">New Game</button>
+        </aside>
+
+        <div id="game-modal" class="hidden">
+            <div class="modal-content">
+                <h2 id="modal-title">Checkmate!</h2>
+                <p id="modal-body">White wins the game.</p>
+                <button id="modal-reset-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
